@@ -45,5 +45,9 @@
   },
   "devDependencies": {
     "prettier": "2.1.1"
-  }
+  },
+  "description": "At Boardingware, most of our services are written in Javascript/Typescript. New features on the web are written in React with Typescript. This project has a similar setup to our web application. It will give you an idea of the codebase you will be working with as a front end engineer at Boardingware.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
