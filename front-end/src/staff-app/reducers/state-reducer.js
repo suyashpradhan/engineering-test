@@ -6,19 +6,19 @@ export const stateReducer = (state, action) => {
     case "CHANGE_ROLL_MODE":
       return { ...state, isRollMode: action.payload }
 
-    case "TOGGLE_SORT":
+    case ACTIONS.TOGGLE_SWITCH:
       return {
         ...state,
         sort: { ...state.sort, applied: !state.sort.applied },
       }
 
-    case "SORT_BY_FIRSTNAME_OR_LASTNAME":
+    case ACTIONS.TOGGLE_BY_NAME:
       return {
         ...state,
         sort: { ...state.sort, firstName: !state.sort.firstName },
       }
 
-    case "SORT_BY_ASCENDING_OR_DESCENDING":
+    case ACTIONS.TOGGLE_BY_ORDER:
       return {
         ...state,
         sort: { ...state.sort, ascending: !state.sort.ascending },
@@ -38,7 +38,7 @@ export const stateReducer = (state, action) => {
       const existingStudentRolls = state.updatedStudentRolls
 
       const latestChanges = isStudentInUpdatedStudentRolls(existingStudentRolls, newStudent)
-        ? existingStudentRolls.map((studentObj, i) => (studentObj.id === newStudent.id ? { ...newStudent } : { ...studentObj }))
+        ? existingStudentRolls.map((studentObj) => (studentObj.id === newStudent.id ? { ...newStudent } : { ...studentObj }))
         : existingStudentRolls.concat(action.payload)
       return {
         ...state,

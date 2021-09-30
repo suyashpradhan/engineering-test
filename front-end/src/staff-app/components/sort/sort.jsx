@@ -18,18 +18,18 @@ export const Sort = () => {
     <S.SortContainer>
       <FormControlLabel
         style={{ marginLeft: 0 }}
-        control={<Switch checked={applied} onChange={() => dispatch({ type: "TOGGLE_SORT" })} name="firstName" />}
+        control={<Switch checked={applied} onChange={() => dispatch({ type: "TOGGLE_USERS_SWITCH" })} name="firstName" />}
         label="Sort Users"
         labelPlacement="start"
       />
       {applied && (
         <FormGroup row>
           <FormControlLabel
-            control={<Switch size="small" checked={firstName} onChange={() => dispatch({ type: "SORT_BY_FIRSTNAME_OR_LASTNAME" })} name="firstName" />}
+            control={<Switch size="small" checked={firstName} onChange={() => dispatch({ type: "TOGGLE_USERS_BY_NAME" })} name="firstName" />}
             label={firstName ? "First Name" : "Last Name"}
           />
           <FormControlLabel
-            control={<Switch size="small" checked={ascending} onChange={() => dispatch({ type: "SORT_BY_ASCENDING_OR_DESCENDING" })} name="ascending" />}
+            control={<Switch size="small" checked={ascending} onChange={() => dispatch({ type: "TOGGLE_USERS_BY_ASCENDING_OR_DESCENDING_ORDER" })} name="ascending" />}
             label={ascending ? "Ascending" : "Descending"}
           />
         </FormGroup>
