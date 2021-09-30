@@ -1,0 +1,1 @@
+export const SEARCH_RESULTS = "SEARCH_STUDENT_NAME"
