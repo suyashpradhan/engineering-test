@@ -1,6 +1,5 @@
 export const getSortedStudents = (studentsData, appState) => {
   const { sort } = appState
-  console.log(sort)
 
   let sortedStudents
   let key
@@ -8,16 +7,13 @@ export const getSortedStudents = (studentsData, appState) => {
   let nameTwo
 
   if (sort.applied) {
-    /** SORT BY FIRST_NAME OR LAST_NAME */
     key = sort.firstName ? "first_name" : "last_name"
 
     sortedStudents = studentsData.sort((a, b) => {
       if (sort.ascending) {
-        /**EITHER SORT BY ASCENDING */
         nameOne = a[key]
         nameTwo = b[key]
       } else {
-        /**OR SORT BY DESCENDING */
         nameOne = b[key]
         nameTwo = a[key]
       }
@@ -27,7 +23,6 @@ export const getSortedStudents = (studentsData, appState) => {
       if (nameOne > nameTwo) {
         return 1
       }
-      // names must be equal
       return 0
     })
 

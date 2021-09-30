@@ -1,5 +1,5 @@
 import * as ACTIONS from "./reducer.actions"
-import { isStudentInUpdatedStudentRolls } from "../utils"
+import { isStudentUpdated } from "../utils"
 
 export const stateReducer = (state, action) => {
   switch (action.type) {
@@ -37,7 +37,7 @@ export const stateReducer = (state, action) => {
       const newStudent = action.payload
       const existingStudentRolls = state.updatedStudentRolls
 
-      const latestChanges = isStudentInUpdatedStudentRolls(existingStudentRolls, newStudent)
+      const latestChanges = isStudentUpdated(existingStudentRolls, newStudent)
         ? existingStudentRolls.map((studentObj) => (studentObj.id === newStudent.id ? { ...newStudent } : { ...studentObj }))
         : existingStudentRolls.concat(action.payload)
       return {

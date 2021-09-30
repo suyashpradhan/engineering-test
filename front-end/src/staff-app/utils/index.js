@@ -1,6 +1,6 @@
-import { isStudentInUpdatedStudentRolls } from "./array-functions"
+import { isStudentUpdated } from "./array-functions"
 import { getFilteredStudents } from "./getFilteredStudents"
 import { getSearchedStudents } from "./getSearchedStudents"
 import { getSortedStudents } from "./getSortedStudents"
 
-export { getSearchedStudents, getSortedStudents, isStudentInUpdatedStudentRolls, getFilteredStudents }
+export { getSearchedStudents, getSortedStudents, isStudentUpdated, getFilteredStudents }
