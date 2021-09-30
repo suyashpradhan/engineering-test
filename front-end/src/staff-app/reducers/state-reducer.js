@@ -3,7 +3,7 @@ import { isStudentInUpdatedStudentRolls } from "../utils"
 
 export const stateReducer = (state, action) => {
   switch (action.type) {
-    case "CHANGE_ROLL_MODE":
+    case ACTIONS.TOGGLE_USER_ROLL:
       return { ...state, isRollMode: action.payload }
 
     case ACTIONS.TOGGLE_SWITCH:
@@ -33,7 +33,7 @@ export const stateReducer = (state, action) => {
     case ACTIONS.CLEAR_SEARCH:
       return { ...state, searchedString: "" }
 
-    case "ADD_OR_UPDATE_STUDENT_INTO_UPDATED_STUDENT_ROLLS":
+    case ACTIONS.ADD_OR_UPDATE_STUDENTS:
       const newStudent = action.payload
       const existingStudentRolls = state.updatedStudentRolls
 
@@ -45,13 +45,13 @@ export const stateReducer = (state, action) => {
         updatedStudentRolls: latestChanges,
       }
 
-    case "ADD_ALL_STUDENTS_WITH_ROLL_TYPE_AS_UNMARK_INTO_UPDATED_STUDENT_ROLLS":
+    case ACTIONS.UPDATE_STUDENT_WITH_UNMARK_ROLE:
       return {
         ...state,
         updatedStudentRolls: state.updatedStudentRolls.concat(action.payload.map((stuObj) => ({ ...stuObj, type: "unmark" }))),
       }
 
-    case "FILTER_STUDENTS_BY_ROLL_TYPE":
+    case ACTIONS.FILTER_STUDENT_ROLE:
       return {
         ...state,
         filterType: action.payload,

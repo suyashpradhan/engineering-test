@@ -22,7 +22,7 @@ export const HomeBoardPage: React.FC = () => {
   }, [getStudents])
 
   useEffect(() => {
-    studentsDataLoading === "loaded" && dispatch({ type: "ADD_ALL_STUDENTS_WITH_ROLL_TYPE_AS_UNMARK_INTO_UPDATED_STUDENT_ROLLS", payload: data?.students })
+    studentsDataLoading === "loaded" && dispatch({ type: "UPDATE_STUDENT_WITH_UNMARK_ROLE_TYPE", payload: data?.students })
   }, [studentsDataLoading, dispatch, data])
 
   const sortedStudents = data && getSortedStudents(state.updatedStudentRolls, state)

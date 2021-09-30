@@ -31,7 +31,7 @@ export const RollStateSwitcher: React.FC<Props> = ({ student, size = 40 }) => {
     return states[0]
   }
 
-  const onClick = () => dispatch({ type: "ADD_OR_UPDATE_STUDENT_INTO_UPDATED_STUDENT_ROLLS", payload: { ...student, type: nextState() } })
+  const onClick = () => dispatch({ type: "UPDATE_STUDENTS_WITH_NEW_ROLL", payload: { ...student, type: nextState() } })
 
   return <RollStateIcon size={size} type={rollState} onClick={onClick} />
 }
