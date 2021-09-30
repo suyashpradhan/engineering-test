@@ -4,35 +4,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { RollStateIcon } from "staff-app/components/roll-state/roll-state-icon.component"
 import { Spacing, FontWeight } from "shared/styles/styles"
 import { RolllStateType } from "shared/models/roll"
+import { useStaffContext } from "staff-app/context/state-context"
 
 interface Props {
-  stateList: StateList[]
-  onItemClick?: (type: ItemType) => void
   size?: number
 }
-export const RollStateList: React.FC<Props> = ({ stateList, size = 14, onItemClick }) => {
-  const onClick = (type: ItemType) => {
-    if (onItemClick) {
-      onItemClick(type)
-    }
-  }
+export const RollStateList: React.FC<Props> = ({ size = 14 }) => {
+  const {
+    state: { rollStateList, updatedStudentRolls },
+    dispatch,
+  } = useStaffContext()
 
   return (
     <S.ListContainer>
-      {stateList.map((s, i) => {
+      {rollStateList.map((s: any, i: any) => {
         if (s.type === "all") {
           return (
             <S.ListItem key={i}>
-              <FontAwesomeIcon icon="users" size="sm" style={{ cursor: "pointer" }} onClick={() => onClick(s.type)} />
-              <span>{s.count}</span>
+              <FontAwesomeIcon icon="users" size="sm" style={{ cursor: "pointer" }} onClick={() => dispatch({ type: "FILTER_STUDENTS_BY_ROLL_TYPE", payload: s.type })} />
+              <span>{updatedStudentRolls.count}</span>
             </S.ListItem>
           )
         }
 
         return (
           <S.ListItem key={i}>
-            <RollStateIcon type={s.type} size={size} onClick={() => onClick(s.type)} />
-            <span>{s.count}</span>
+            <RollStateIcon
+              type={s.type}
+              size={size}
+              onClick={() => {
+                dispatch({ type: "FILTER_STUDENTS_BY_ROLL_TYPE", payload: s.type })
+              }}
+            />
+            <span>{updatedStudentRolls.filter((stateObj: any) => stateObj.type === s.type)?.length}</span>
           </S.ListItem>
         )
       })}

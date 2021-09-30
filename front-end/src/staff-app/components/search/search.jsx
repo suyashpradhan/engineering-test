@@ -14,7 +14,7 @@ export const Search = () => {
   return (
     <>
       <>
-        <Grid container spacing={1} alignItems="center">
+        <Grid alignItems="center">
           <Grid item>
             <TextField
               multiline
@@ -32,7 +32,7 @@ export const Search = () => {
           </Grid>
           <Grid item>
             {searchedString.length > 0 && (
-              <Button size="small" variant="contained" onClick={() => dispatch({ type: "RESET_SEARCH_STRING" })}>
+              <Button size="small" variant="contained" onClick={() => dispatch({ type: "CLEAR_SEARCH_RESULTS" })}>
                 Clear
               </Button>
             )}

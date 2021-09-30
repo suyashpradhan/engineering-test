@@ -5,16 +5,20 @@ import Button from "@material-ui/core/ButtonBase"
 import { Spacing, BorderRadius, FontWeight } from "shared/styles/styles"
 import { Colors } from "shared/styles/colors"
 import { Search } from "staff-app/components/search/search"
-import { Sort } from "staff-app/sort/sort"
+import { Sort } from "staff-app/components/sort/sort"
 
 // Toolbar Component
 export const ToolbarComponent = () => {
   const { dispatch } = useStaffContext()
+
+  const handleStartRollMode = () => dispatch({ type: "CHANGE_ROLL_MODE", payload: true })
+
   return (
     <>
       <S.ToolbarContainer>
         <Sort />
         <Search />
+        <S.Button onClick={handleStartRollMode}>Start Role</S.Button>
       </S.ToolbarContainer>
     </>
   )

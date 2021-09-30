@@ -4,7 +4,7 @@ import { FontSize, Spacing } from "shared/styles/styles"
 import FormGroup from "@material-ui/core/FormGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Switch from "@material-ui/core/Switch"
-import { useStaffContext } from "staff-app/context/state-context"
+import { useStaffContext } from "../../context/state-context"
 
 export const Sort = () => {
   const {

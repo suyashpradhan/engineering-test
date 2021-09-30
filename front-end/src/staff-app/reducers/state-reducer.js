@@ -30,8 +30,8 @@ export const stateReducer = (state, action) => {
         searchedString: action.payload,
       }
 
-    case "RESET_SEARCH_STRING":
-      return { ...state, searchString: "" }
+    case ACTIONS.CLEAR_SEARCH:
+      return { ...state, searchedString: "" }
 
     case "ADD_OR_UPDATE_STUDENT_INTO_UPDATED_STUDENT_ROLLS":
       const newStudent = action.payload

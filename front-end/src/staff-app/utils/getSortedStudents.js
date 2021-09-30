@@ -1,17 +1,18 @@
 export const getSortedStudents = (studentsData, appState) => {
-  const { sort: sortState } = appState
+  const { sort } = appState
+  console.log(sort)
 
   let sortedStudents
   let key
   let nameOne
   let nameTwo
 
-  if (sortState.applied) {
+  if (sort.applied) {
     /** SORT BY FIRST_NAME OR LAST_NAME */
-    key = sortState.firstName ? "first_name" : "last_name"
+    key = sort.firstName ? "first_name" : "last_name"
 
     sortedStudents = studentsData.sort((a, b) => {
-      if (sortState.ascending) {
+      if (sort.ascending) {
         /**EITHER SORT BY ASCENDING */
         nameOne = a[key]
         nameTwo = b[key]
